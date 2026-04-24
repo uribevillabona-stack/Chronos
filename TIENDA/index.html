@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronos | Relojes de Lujo</title>
+    <meta
+      name="description"
+      content="Tienda online de relojes premium con una experiencia de compra moderna."
+    />
+    <script>
+      if (location.protocol !== "file:" && /\/TIENDA$/i.test(location.pathname)) {
+        location.replace(`${location.pathname}/${location.search}${location.hash}`)
+      }
+    </script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2318120c'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='34' font-weight='700' fill='%23f7efe4'%3EC%3C/text%3E%3C/svg%3E"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="../shared/ui-patterns.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="brand-kicker">Maison horlogère</p>
+            <h1>CHRONOS</h1>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Principal">
+          <a href="#coleccion">Colección</a>
+          <a href="#destacados">Destacados</a>
+          <a href="#carrito">Carrito</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link" href="../INICIO/index.html" id="authLink">Iniciar sesión / Registro</a>
+          <div class="account-menu" id="accountMenu" hidden>
+            <button
+              class="topbar-link topbar-button account-toggle"
+              type="button"
+              id="accountToggle"
+              aria-expanded="false"
+              aria-controls="accountPanel"
+            >
+              Mi cuenta
+            </button>
+
+            <div class="account-panel" id="accountPanel" hidden>
+              <p class="account-label">Sesión activa</p>
+              <strong class="account-name" id="authStatus"></strong>
+              <a class="account-link" href="../INICIO/index.html">
+                Mi acceso
+              </a>
+              <button class="account-logout" type="button" id="logoutButton">Cerrar sesión</button>
+            </div>
+          </div>
+          <a class="topbar-link" href="../SERVICIOS/index.html">Servicios</a>
+        </div>
+
+        <button
+          class="cart-pill"
+          id="cartToggle"
+          type="button"
+          aria-label="Abrir carrito"
+          aria-controls="carrito"
+        >
+          <span>Carrito</span>
+          <strong id="cartCount" aria-live="polite">0</strong>
+        </button>
+      </header>
+
+      <main class="layout">
+        <section class="hero">
+          <img
+            class="hero-image"
+            src="./public/images/hero-watch-hero.jpg"
+            srcset="
+              ./public/images/hero-watch-hero-800.jpg 800w,
+              ./public/images/hero-watch-hero.jpg 1600w
+            "
+            sizes="(max-width: 760px) 100vw, (max-width: 1280px) calc(100vw - 32px), 1280px"
+            loading="eager"
+            decoding="async"
+            alt="Primer plano de un reloj de lujo real sobre una muñeca"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-copy">
+            <p class="eyebrow">Colección Premium 2026</p>
+            <h2>Relojes que convierten precisión en presencia.</h2>
+            <p>
+              Piezas de lujo con estética contemporánea, acabados metálicos y una compra
+              directa sin fricción.
+            </p>
+            <a class="hero-cta" href="#coleccion">Explorar colección</a>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <section class="catalog" id="coleccion">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Selección curada</p>
+                <h3>Nuestra colección</h3>
+              </div>
+              <p class="section-meta">
+                <span id="productCount">0</span> modelos disponibles
+              </p>
+            </div>
+
+            <div class="feature-strip" id="destacados">
+              <article>
+                <span>01</span>
+                <h4>Diseño sobrio</h4>
+                <p>Cajas refinadas, pulidos limpios y correas con carácter.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>Entrega premium</h4>
+                <p>Empaque elegante y seguimiento inmediato del pedido.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>Compra segura</h4>
+                <p>Checkout simple con resumen claro y total siempre visible.</p>
+              </article>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+          </section>
+
+          <aside class="cart-panel" id="carrito" tabindex="-1" aria-labelledby="cartTitle">
+            <div class="cart-head">
+              <div>
+                <p class="section-kicker">Resumen</p>
+                <h3 id="cartTitle">Tu carrito</h3>
+              </div>
+              <span class="cart-badge" id="cartBadge" aria-live="polite">0 artículos</span>
+            </div>
+
+            <div class="cart-items" id="cartItems" aria-live="polite"></div>
+
+            <div class="cart-summary">
+              <div>
+                <span>Subtotal</span>
+                <strong id="cartSubtotal" aria-live="polite">$0</strong>
+              </div>
+              <div>
+                <span>Envío premium</span>
+                <strong>Gratis</strong>
+              </div>
+              <button class="checkout-button" type="button" id="checkoutButton">
+                Finalizar compra
+              </button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <template id="productCardTemplate">
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="product-image" alt="" />
+        </div>
+        <div class="product-body">
+          <p class="product-tag">Edición Chronos</p>
+          <h4 class="product-name"></h4>
+          <div class="product-footer">
+            <strong class="product-price"></strong>
+            <button class="add-button" type="button">Agregar</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <template id="cartItemTemplate">
+      <article class="cart-item">
+        <img class="cart-item-image" alt="" />
+        <div class="cart-item-body">
+          <div class="cart-item-copy">
+            <h4 class="cart-item-name"></h4>
+            <strong class="cart-item-price"></strong>
+          </div>
+          <div class="cart-controls">
+            <div class="quantity-control">
+              <button class="qty-button" type="button" data-action="decrease">-</button>
+              <span class="qty-value"></span>
+              <button class="qty-button" type="button" data-action="increase">+</button>
+            </div>
+            <button class="remove-button" type="button">Eliminar</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="../shared/auth-session.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

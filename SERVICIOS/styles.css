@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  --background: #0b0b0c;
+  --foreground: #f3efe6;
+  --card: #141314;
+  --muted: #b8b1a3;
+  --border: rgba(212, 175, 55, 0.28);
+  --shadow: rgba(0, 0, 0, 0.48);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at 15% 8%, rgba(212, 175, 55, 0.12), transparent 34%),
+    radial-gradient(circle at 86% 14%, rgba(184, 137, 45, 0.12), transparent 30%),
+    linear-gradient(160deg, #080808 0%, #121113 48%, #0b0b0c 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    115deg,
+    transparent 0,
+    transparent 34px,
+    rgba(255, 255, 255, 0.012) 34px,
+    rgba(255, 255, 255, 0.012) 35px
+  );
+  opacity: 0.5;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.services-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 88px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.utility-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-bottom: 22px;
+}
+
+.utility-link {
+  padding: 10px 16px;
+  border: 1px solid rgba(212, 175, 55, 0.36);
+  background: rgba(20, 19, 20, 0.82);
+  color: #f7f2e7;
+  font-size: 0.86rem;
+}
+
+.utility-button::after {
+  content: "▾";
+  margin-left: 8px;
+  font-size: 0.78rem;
+}
+
+.account-panel {
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: var(--radius);
+  background: rgba(20, 19, 20, 0.96);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+.account-label {
+  color: var(--muted);
+}
+
+.account-name {
+  color: #f8f2e6;
+}
+
+.account-link,
+.account-logout {
+  border-radius: 999px;
+}
+
+.account-link {
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  background: rgba(212, 175, 55, 0.08);
+  color: #f7f2e7;
+}
+
+.account-logout {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f7f2e7;
+  cursor: pointer;
+}
+
+.account-link:hover,
+.account-logout:hover,
+.account-link:focus-visible,
+.account-logout:focus-visible {
+  border-color: rgba(212, 175, 55, 0.56);
+  background: rgba(212, 175, 55, 0.14);
+}
+
+.utility-link:hover,
+.utility-link:focus-visible {
+  border-color: rgba(212, 175, 55, 0.72);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.hero {
+  margin-bottom: 58px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: 0.03em;
+  color: #f8f2e6;
+  text-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+  .hero-copy {
+    width: min(100%, 680px);
+  margin: 0 auto;
+  font-size: 1.04rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-item {
+  list-style: none;
+}
+
+.service-card {
+  position: relative;
+  height: 100%;
+}
+
+.service-card::before,
+.service-card::after,
+.service-card .accent-left,
+.service-card .accent-right {
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card::before,
+.service-card::after {
+  content: "";
+  width: 82px;
+  height: 82px;
+  opacity: 0.36;
+}
+
+.service-card::before {
+  top: -14px;
+  left: -14px;
+  border-top: 1px solid color-mix(in srgb, var(--accent-color) 64%, transparent);
+  border-left: 1px solid color-mix(in srgb, var(--accent-color) 64%, transparent);
+}
+
+.service-card::after {
+  right: -14px;
+  bottom: -14px;
+  border-right: 1px solid color-mix(in srgb, var(--accent-color) 64%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-color) 64%, transparent);
+}
+
+.service-card .accent-left,
+.service-card .accent-right {
+  top: 28px;
+  width: 58px;
+  height: 1px;
+  opacity: 0.55;
+  background: color-mix(in srgb, var(--accent-color) 80%, #fff0c7 20%);
+}
+
+.service-card .accent-left {
+  left: -24px;
+  transform: rotate(-15deg);
+}
+
+.service-card .accent-right {
+  right: -24px;
+  transform: rotate(15deg);
+}
+
+.service-card:hover::before,
+.service-card:hover::after,
+.service-card:hover .accent-left,
+.service-card:hover .accent-right {
+  opacity: 0.9;
+}
+
+.card-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.008)),
+    var(--card);
+  box-shadow:
+    0 14px 34px var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px color-mix(in srgb, var(--accent-color) 24%, transparent);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card-shell::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: calc(var(--radius) - 8px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.service-card:hover .card-shell {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent-color) 52%, transparent);
+  box-shadow:
+    0 18px 42px var(--shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 1px color-mix(in srgb, var(--accent-color) 42%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+.icon-frame {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 78%, #ffffff 22%);
+  border-radius: 18px;
+  color: var(--accent-color);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.34),
+    0 0 18px color-mix(in srgb, var(--accent-color) 16%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--accent-color) 10%, transparent);
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover .icon-frame {
+  transform: scale(1.03);
+}
+
+.icon-frame svg {
+  width: 34px;
+  height: 34px;
+}
+
+.card-shell h2 {
+  margin: 0 0 16px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #f7f2e7;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent-color) 16%, transparent);
+}
+
+.card-shell p {
+  flex: 1;
+  margin: 0 0 24px;
+  font-size: 0.94rem;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--muted);
+}
+
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 18px;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  color: var(--accent-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--accent-color) 8%, transparent);
+}
+
+@media (max-width: 960px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+  }
+
+  .utility-row {
+    flex-wrap: wrap;
+  }
+
+  .account-menu {
+    width: 100%;
+  }
+
+  .utility-link,
+  .utility-button {
+    width: 100%;
+  }
+
+  .account-panel {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+
+  .service-card .accent-left,
+  .service-card .accent-right {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .utility-row {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .services-section {
+    padding: 64px 16px;
+  }
+
+  .hero {
+    margin-bottom: 44px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 10vw, 3rem);
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card-shell {
+    padding: 24px 22px;
+  }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autenticación</title>
+    <script>
+      if (location.protocol !== "file:" && /\/INICIO$/i.test(location.pathname)) {
+        location.replace(`${location.pathname}/${location.search}${location.hash}`)
+      }
+    </script>
+    <link rel="stylesheet" href="../shared/ui-patterns.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="back-to-store" href="../TIENDA/index.html">Volver a la tienda</a>
+    <main class="page">
+      <section class="auth-card">
+        <div class="auth-layout">
+          <div class="form-panel">
+            <div id="register-view" class="auth-view">
+              <header class="copy-block">
+                <p class="panel-kicker">Acceso CHRONOS</p>
+                <h1>Crear cuenta</h1>
+                <p>Completa tus datos para registrarte</p>
+              </header>
+
+              <form id="register-form" class="auth-form">
+                <div class="field-group">
+                  <label for="register-name">Nombre completo</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="register-name"
+                      name="name"
+                      type="text"
+                      placeholder="Juan Pérez"
+                      autocomplete="name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="register-email">Correo electrónico</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2v.217l8 5.334 8-5.334V8l-8 5.333L4 8Z"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="register-email"
+                      name="email"
+                      type="email"
+                      placeholder="correo@ejemplo.com"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="register-password">Contraseña</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M17 9h-1V7a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4Z"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="register-password"
+                      name="password"
+                      type="password"
+                      placeholder="••••••••"
+                      autocomplete="new-password"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <button class="primary-button" type="submit">Registrarme</button>
+              </form>
+
+              <div class="separator">
+                <span>o continúa con</span>
+              </div>
+
+              <div class="social-grid">
+                <button class="social-button" type="button" data-provider="Google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"
+                    />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23Z"
+                    />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84Z"
+                    />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53Z"
+                    />
+                  </svg>
+                  <span>Google</span>
+                </button>
+                <button class="social-button" type="button" data-provider="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"
+                    />
+                  </svg>
+                  <span>GitHub</span>
+                </button>
+              </div>
+
+              <p class="mobile-switch">
+                ¿Ya tienes cuenta?
+                <button type="button" data-switch="login">Inicia sesión</button>
+              </p>
+            </div>
+
+            <div id="login-view" class="auth-view is-hidden">
+              <header class="copy-block">
+                <p class="panel-kicker">Acceso CHRONOS</p>
+                <h1>Iniciar sesión</h1>
+                <p>Ingresa tus credenciales para acceder</p>
+              </header>
+
+              <form id="login-form" class="auth-form">
+                <div class="field-group">
+                  <label for="login-email">Usuario</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2v.217l8 5.334 8-5.334V8l-8 5.333L4 8Z"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="login-email"
+                      name="username"
+                      type="text"
+                      placeholder="Juan"
+                      autocomplete="username"
+                      required
+                    />
+                  </div>
+                  <small class="field-hint">Usuario demo: <strong>Juan</strong></small>
+                </div>
+
+                <div class="field-group">
+                  <div class="field-row">
+                    <label for="login-password">Contraseña</label>
+                    <button class="link-button" type="button" id="forgot-password">
+                      ¿Olvidaste tu contraseña?
+                    </button>
+                  </div>
+                  <div class="input-wrap password-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M17 9h-1V7a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4Z"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="login-password"
+                      name="password"
+                      type="password"
+                      placeholder="••••••••"
+                      autocomplete="current-password"
+                      required
+                    />
+                    <button
+                      class="password-toggle"
+                      type="button"
+                      id="toggle-password"
+                      aria-label="Mostrar contraseña"
+                      aria-pressed="false"
+                    >
+                      Ver
+                    </button>
+                  </div>
+                  <small class="field-hint">Clave demo: <strong>1234</strong></small>
+                </div>
+
+                <label class="checkbox-row" for="remember">
+                  <input id="remember" name="remember" type="checkbox" />
+                  <span>Recordar mi sesión</span>
+                </label>
+
+                <button class="primary-button" type="submit">Iniciar sesión</button>
+              </form>
+
+              <div class="separator">
+                <span>o continúa con</span>
+              </div>
+
+              <div class="social-grid">
+                <button class="social-button" type="button" data-provider="Google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"
+                    />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23Z"
+                    />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84Z"
+                    />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53Z"
+                    />
+                  </svg>
+                  <span>Google</span>
+                </button>
+                <button class="social-button" type="button" data-provider="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"
+                    />
+                  </svg>
+                  <span>GitHub</span>
+                </button>
+              </div>
+
+              <p class="mobile-switch">
+                ¿No tienes cuenta?
+                <button type="button" data-switch="register">Regístrate</button>
+              </p>
+            </div>
+
+            <div id="post-login-view" class="auth-view is-hidden" aria-live="polite">
+              <header class="copy-block post-login-copy">
+                <p class="panel-kicker">Acceso confirmado</p>
+                <h1>Bienvenido a la experiencia CHRONOS</h1>
+                <p>
+                  Tu sesión demo está activa. Desde acá puedes seguir hacia la tienda o
+                  servicios, o cerrar sesión para reiniciar el flujo.
+                </p>
+                <p class="post-login-user" id="post-login-user"></p>
+              </header>
+
+              <div class="post-login-panel">
+                <strong>Qué puedes hacer ahora</strong>
+                <ul class="post-login-list">
+                  <li>Entrar a la tienda premium y explorar la colección.</li>
+                  <li>Ver servicios disponibles de alta relojería.</li>
+                  <li>Cerrar sesión para probar otra vez el acceso demo.</li>
+                </ul>
+              </div>
+
+              <div class="post-login-actions">
+                <a class="primary-button post-login-link" href="../TIENDA/index.html">Ir a la tienda</a>
+                <a class="social-button post-login-link" href="../SERVICIOS/index.html">Ver servicios</a>
+                <button class="post-login-logout" type="button" id="post-login-logout">
+                  Cerrar sesión
+                </button>
+              </div>
+            </div>
+
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+          </div>
+
+          <aside class="welcome-panel">
+            <div class="background-shapes" aria-hidden="true">
+              <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+                <circle cx="350" cy="100" r="200" class="shape-light" />
+                <circle cx="50" cy="500" r="180" class="shape-soft" />
+                <ellipse cx="300" cy="450" rx="150" ry="200" class="shape-soft" />
+                <path
+                  d="M0 300 Q100 250 150 350 T300 300 T400 350 L400 600 L0 600 Z"
+                  class="shape-soft"
+                />
+              </svg>
+            </div>
+
+            <div class="welcome-content">
+              <div class="welcome-copy">
+                <p class="welcome-kicker">Maison horlogère</p>
+                <h2 id="welcome-title">¡Bienvenido!</h2>
+                <p id="welcome-text">
+                  Únete a nuestra comunidad y descubre todas las posibilidades que
+                  tenemos para ti.
+                </p>
+                <ul class="welcome-highlights" aria-label="Beneficios principales">
+                  <li>Acceso rápido a la tienda premium</li>
+                  <li>Seguimiento simple de tu experiencia demo</li>
+                  <li>Servicios y novedades de alta relojería</li>
+                </ul>
+                <button id="panel-switch" class="outline-button" type="button">
+                  Iniciar sesión
+                </button>
+              </div>
+
+              <div class="decor-circle decor-circle-large" aria-hidden="true"></div>
+              <div class="decor-circle decor-circle-small" aria-hidden="true"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="../shared/auth-session.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
