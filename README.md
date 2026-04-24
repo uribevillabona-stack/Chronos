@@ -6,6 +6,28 @@ CHRONOS es un proyecto front-end estático compuesto por tres experiencias separ
 - **INICIO**: pantalla demo de registro e inicio de sesión.
 - **SERVICIOS**: página de servicios de relojería.
 
+## Vista general
+
+Este repositorio reúne una experiencia demo de marca para CHRONOS con foco en:
+
+- estética premium de relojería
+- navegación simple entre módulos
+- carrito persistente con `localStorage`
+- flujo de acceso demo con sesión simulada
+
+## Acceso rápido
+
+Luego de levantar el servidor local, podés entrar directamente a:
+
+- **Tienda:** `http://localhost:8000/TIENDA/`
+- **Inicio / acceso:** `http://localhost:8000/INICIO/`
+- **Servicios:** `http://localhost:8000/SERVICIOS/`
+
+### Credenciales demo
+
+- **Usuario:** `Juan`
+- **Clave:** `1234`
+
 ## Estado del proyecto
 
 Este repositorio **no usa framework ni herramientas de build**. Está hecho con:
